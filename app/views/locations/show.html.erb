@@ -1,0 +1,18 @@
+<p>
+  <strong>Title:</strong>
+  <%= @location.title %>
+</p>
+ 
+<p>
+  <strong>Number:</strong>
+  <%= @location.number %>
+</p>
+
+<h2>Employees:</h2>
+<%= render 'employees/employees'%>
+
+
+<h2>Add an Employee:</h2>
+<%= render 'employees/form'%>
+
+<%= link_to 'Edit', edit_location_path(@location)%> | <%= link_to 'Back', locations_path%>
