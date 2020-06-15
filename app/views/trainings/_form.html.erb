@@ -1,0 +1,9 @@
+<%= form_with(model: [@location, @location.trainings.build], local: true) do |form| %>
+  
+  <p>
+    <%= form.label :name %><br>
+    <%= form.text_field :name %>
+  </p>
+    <%= form.submit %>
+  </p>
+<% end %>

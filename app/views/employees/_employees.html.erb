@@ -5,16 +5,16 @@
     <th>Employee Number:</th>
   </tr>
  
-  <% @location.employees.each do |employee| %>
+  <% @employees.each do |employee| %>
     <tr>
       <td><%= employee.first_name %></td>
       <td><%= employee.last_name %></td>
       <td><%= employee.employee_number%></td>
-      <td><%= link_to 'Show', location_employee_path(employee.location, employee) %></td>
-      <td><%= link_to 'Edit', edit_location_employee_path(employee.location, employee) %></td>
-      <td><%= link_to 'Destroy', location_employee_path(employee.location, employee),
-              method: :delete,
-              data: { confirm: 'Are you sure?' } %></td>
+      <td><%= employee.id%></td>
+      
+      <td><%= link_to 'Show', location_employee_path(@location, employee.id) %> </td> 
+      <td><%= link_to 'Edit', edit_location_employee_path(@location, employee) %></td> 
+      
     </tr>
   <% end %>
 </table>

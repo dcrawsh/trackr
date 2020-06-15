@@ -1,0 +1,22 @@
+
+
+<table>
+  <tr>
+    <th>Firstname</th>
+    <th>Lastname</th>
+    <th>Training</th>
+    <th>Occurence</th>
+  </tr>
+  
+  <%@employee_trainings.each do |employee_training|%>
+
+  <tr>
+    
+    <td><%=employee_training.employee.first_name%></td>
+    <td><%=employee_training.employee.last_name%></td>
+    <td><%=employee_training.training.name%></td>
+    <td><%=employee_training.occurence%></td>
+    <%end%>
+  
+  </tr>
+</table>

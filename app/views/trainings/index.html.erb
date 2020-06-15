@@ -1,0 +1,6 @@
+<ul>
+<%@trainings.each do |training|%>
+<li><%=training.name%> <%=link_to "Edit", edit_location_training_path(@location, training)%></li>
+<%end%>
+</ul>
+<%= link_to 'Create New', new_location_training_path(@location)  %>

@@ -1,0 +1,20 @@
+<h1>Edit Employee Training Information</h1>
+
+<%= form_with(model: [@employee_training], local: true) do |form| %>
+  <p>
+    <%= form.label :occurence %><br>
+    <%= form.date_field :occurence%>
+  </p>
+  <label>Please choose one Training:<br>
+  <select name="employee_training[training_id]" multiple>
+    <optgroup label="Trainings:">
+      <%@trainings.each do |t|%>
+      <option value="<%=t.id%>"><%=t.name%></option>
+      <%end%>
+      
+    </optgroup>
+  </select>
+</label><br>
+    <%= form.submit %>
+  </p>
+<% end %>

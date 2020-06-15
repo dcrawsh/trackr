@@ -1,18 +1,33 @@
-<p>
-  <strong>Title:</strong>
-  <%= @location.title %>
-</p>
- 
-<p>
-  <strong>Number:</strong>
-  <%= @location.number %>
-</p>
+<form action="/locations/5" method="get">
+  
+  <select name="search">
+    <option value="">--Search Options--</option>
+    <option value="first">First Name</option>
+    <option value="last">Last Name</option>
+    <option value="trainingname">Training Name</option>
+    <%= text_field_tag(:query) %>
 
-<h2>Employees:</h2>
-<%= render 'employees/employees'%>
+  <%= submit_tag("Search") %>
+</form>
+
+<ul>
+  <%if @employees%>
+    <%@employees.each do |e| %>
+    <li><%=e.first_name + " " + e.last_name%></li>
+    <%end%>
+  <%end%>
+  <%if @trainings%>
+    <%@trainings.each do |t| %>
+    <li><%=t.name%></li>
+    <%end%>
+  <%end%>
+</ul>
 
 
-<h2>Add an Employee:</h2>
-<%= render 'employees/form'%>
 
-<%= link_to 'Edit', edit_location_path(@location)%> | <%= link_to 'Back', locations_path%>
+
+
+
+
+  
+  

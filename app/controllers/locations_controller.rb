@@ -5,8 +5,20 @@ class LocationsController < ApplicationController
   end
   
   def show
-    @location = Location.find(params[:id])
+  @location = Location.find(params[:id])
+
+  if params[:search] === "first"
+    @employees = @location.employees.where("first_name LIKE ?", "%#{params[:query]}%")
+  elsif params[:search] === "last"
+    @employees = @location.employees.where("last_name LIKE ?", "%#{params[:query]}%")
+  elsif params[:search] === "trainingname"
+    @trainings = @location.trainings.where("name LIKE ?", "%#{params[:query]}%")
   end
+    
+   
+  
+  
+end
   
   def new
     @location = Location.new
@@ -17,7 +29,7 @@ class LocationsController < ApplicationController
   end
 
   def create
-    @location = Location.new(location_params)
+    @location = Location.new(params[:id])
 
     if @location.save
       redirect_to @location

@@ -10,7 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_27_194256) do
+ActiveRecord::Schema.define(version: 2020_06_02_031926) do
+
+  create_table "employee_trainings", force: :cascade do |t|
+    t.integer "employee_id", null: false
+    t.integer "training_id", null: false
+    t.date "occurence"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.integer "location_id"
+    t.index ["employee_id"], name: "index_employee_trainings_on_employee_id"
+    t.index ["location_id"], name: "index_employee_trainings_on_location_id"
+    t.index ["training_id"], name: "index_employee_trainings_on_training_id"
+  end
 
   create_table "employees", force: :cascade do |t|
     t.integer "employee_number"
@@ -29,5 +41,16 @@ ActiveRecord::Schema.define(version: 2020_04_27_194256) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "trainings", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.integer "location_id"
+  end
+
+  add_foreign_key "employee_trainings", "employees"
+  add_foreign_key "employee_trainings", "locations"
+  add_foreign_key "employee_trainings", "trainings"
   add_foreign_key "employees", "locations"
+  add_foreign_key "trainings", "locations"
 end

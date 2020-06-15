@@ -1,0 +1,35 @@
+
+
+<%= form_with(model: [@location, @location.employee_trainings.build ], local: true) do |form| %>
+  
+  
+  <p>
+    <%= form.label :occurence %><br>
+    <%= form.date_field :occurence%>
+  </p>
+  
+  <label>Please choose one Employee:<br>
+  <select name="employee_training[employee_id]" multiple>
+    <optgroup label="Employees:">
+      <%@employees.each do |e|%>
+      <option value="<%=e.id%>"><%=e.first_name + " " + e.last_name%></option>
+      <%end%>
+        
+      </optgroup>
+    </select>
+  </label><br>
+
+
+  <label>Please choose one Training:<br>
+  <select name="employee_training[training_id]" multiple>
+    <optgroup label="Trainings:">
+      <%@trainings.each do |t|%>
+      <option value="<%=t.id%>"><%=t.name%></option>
+      <%end%>
+      
+    </optgroup>
+  </select>
+</label><br>
+
+<%=form.submit%>
+<% end %>
