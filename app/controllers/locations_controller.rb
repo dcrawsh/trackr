@@ -29,7 +29,7 @@ end
   end
 
   def create
-    @location = Location.new(params[:id])
+    @location = Location.create(location_params)
 
     if @location.save
       redirect_to @location

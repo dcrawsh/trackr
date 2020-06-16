@@ -27,6 +27,7 @@
     <%@employee_trainings.each do |employee_training| %>
     <td><%= employee_training.training.name%></td>
     <td><%= employee_training.occurence%></td>
+    <td><%= link_to 'Add Training', new_location_employee_training_path(@location, @employee) %>
     <td><%= link_to 'Edit', edit_employee_training_path(employee_training) %></td> 
     <%end%>
 </tr>
