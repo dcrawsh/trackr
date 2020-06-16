@@ -6,8 +6,9 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-Employee.create(first_name: 'Rachel', last_name: 'Connors', location_id: 3)
+portland = Location.create(title: 'Portland', number:1)
 
-Training.create(name: 'Fire Safety', location_id:5)
+Employee.create(first_name: 'Rachel', last_name: 'Connors', employee_number: 1, location_id: portland.id)
 
-EmployeeTraining.create(location_id: 5, employee_id: 13, training_id: 3, occurence: 12/22/1991 )
+Training.create(name: 'Fire Safety', location_id: portland.id)
+
