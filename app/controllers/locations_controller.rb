@@ -6,13 +6,14 @@ class LocationsController < ApplicationController
   
   def show
   @location = Location.find(params[:id])
-
+  
   if params[:search] === "first"
-    @employees = @location.employees.where("first_name LIKE ?", "%#{params[:query]}%")
+    @employees = @location.employees.where("first_name LIKE ?", "%#{params[:query]}%")  
   elsif params[:search] === "last"
     @employees = @location.employees.where("last_name LIKE ?", "%#{params[:query]}%")
   elsif params[:search] === "trainingname"
     @trainings = @location.trainings.where("name LIKE ?", "%#{params[:query]}%")
+
   end
     
    
